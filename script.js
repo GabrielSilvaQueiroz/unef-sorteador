@@ -12,15 +12,25 @@ function sortear() {
         return;
     }
 
-    // Array para armazenar os números sorteados
+    //  Array para armazenar os números sorteados
     var numerosSorteados = [];
 
     // Sortear a quantidade de números desejada
-    for (var i = 0; i < quantidadeDeNumeros; i++) {
+    while (numerosSorteados.length < quantidadeDeNumeros) {
         var numeroSorteado = Math.floor(Math.random() * (valorMaximo - valorMinimo + 1)) + valorMinimo;
-        numerosSorteados.push(numeroSorteado);
+
+        // Verificar se o número já foi sorteado
+        if (numerosSorteados.indexOf(numeroSorteado) === -1) {
+            numerosSorteados.push(numeroSorteado);
+        }
     }
 
-    // Exibir os números sorteados no H2 com ID "resultado-numeros"
+    // Ordenar os números do menor para o maior através da posição no array
+    numerosSorteados.sort(function (a, b) {
+        return a - b;
+    });
+
+    // Exibir os números sorteados no h2 com ID "resultado-numeros"
     document.getElementById("resultado-numeros").textContent = "Números Sorteados: " + numerosSorteados.join(", ");
 }
+
