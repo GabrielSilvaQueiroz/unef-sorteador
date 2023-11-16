@@ -13,7 +13,9 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
 }
 
 #container-imagem {
@@ -222,4 +224,10 @@ input:active {
         margin-top: 50px;
     }
 
+}
+
+@media (max-width: 900px) {
+    body {
+        height: 100%;
+    }
 }
